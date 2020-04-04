@@ -79,16 +79,4 @@ bool GenStack<T>::isFull(){
     return (top == (mSize-1));
 }
 
-// int main(int argc, char ** argv){
-//
-//     GenStack<int> *myStack = new GenStack<int>(10);
-//
-//     try{
-//         cout << "popping :" << myStack->pop() << endl;
-//     }catch(const char* msg){
-//         cerr << msg << endl;
-//     }
-//
-//     delete myStack;
-//     return 0;
-// }
+template class GenStack<char>;

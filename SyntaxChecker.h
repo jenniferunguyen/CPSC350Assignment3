@@ -10,12 +10,12 @@
 
 class SyntaxChecker{
 public:
-    SyntaxChecker();
-    ~SyntaxChecker();
+    SyntaxChecker(); // default constructor
+    ~SyntaxChecker(); // destructor
 
-    bool problem(int lineNum, char c);
-    int lastLine();
-    bool finalCheck();
+    bool problem(int lineNum, char c); // add element to stack of delimiter for file
+    int lastLine(); // get line number of last delimiter
+    bool finalCheck(); // returns true if delimiter stack is empty
 
 private:
     GenStack<char> *myStack;

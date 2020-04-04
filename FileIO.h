@@ -12,10 +12,10 @@
 
 class FileIO{
 public:
-    FileIO();
-    ~FileIO();
+    FileIO(); // default constructor
+    ~FileIO(); // overloaded constructor
 
-    void readFile(string fileName);
+    void readFile(string fileName); // read and check syntax in file
 
 private:
     SyntaxChecker *myChecker;

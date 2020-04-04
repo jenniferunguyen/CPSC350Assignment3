@@ -28,6 +28,7 @@ void FileIO::readFile(string fileName){
                     exit(0);
                 }
             }
+            lineNum++;
         }
         if(myChecker->finalCheck()){
             cout << "Your file is good!" << endl;
