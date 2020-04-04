@@ -1,4 +1,26 @@
-// generic stack that can hold any object type (reusable)
-// automatically allocate more room when filled
+#include <iostream>
+using namespace std;
 
-// throw exception if pop is called but stack is empty
+template<typename T>
+class GenStack{
+
+public:
+    GenStack();
+    GenStack(int maxSize);
+    ~GenStack();
+
+    void push(T data);
+    T pop();
+
+    T peek();
+    bool isEmpty();
+    bool isFull();
+
+private:
+    int top = -1;
+    int mSize = 0;
+
+    T* myArray;
+    void clearArray();
+
+};
