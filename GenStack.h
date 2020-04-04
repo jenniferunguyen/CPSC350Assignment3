@@ -1,12 +1,20 @@
+//Jennifer Nguyen
+//2320560
+//jenguyen@chapman.edu
+//CPSC 350-02
+//Assignment 3: Syntax Checker
+
+#ifndef GENSTACK_H
+#define GENSTACK_H
 #include <iostream>
 using namespace std;
 
-template<typename T>
+template<class T>
 class GenStack{
 
 public:
-    GenStack();
-    GenStack(int maxSize);
+    GenStack<T>();
+    GenStack<T>(int maxSize);
     ~GenStack();
 
     void push(T data);
@@ -24,3 +32,5 @@ private:
     void clearArray();
 
 };
+
+#endif

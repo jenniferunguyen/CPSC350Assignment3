@@ -1,30 +1,36 @@
+//Jennifer Nguyen
+//2320560
+//jenguyen@chapman.edu
+//CPSC 350-02
+//Assignment 3: Syntax Checker
+
 #include "GenStack.h"
 
-template<typename T>
+template<class T>
 GenStack<T>::GenStack(){
     myArray = new T[10];
     mSize = 10;
     top = -1;
 }
 
-template<typename T>
+template<class T>
 GenStack<T>::GenStack(int maxSize){
     myArray = new T[maxSize];
     mSize = maxSize;
     top = -1;
 }
 
-template<typename T>
+template<class T>
 GenStack<T>::~GenStack(){
     clearArray();
 }
 
-template<typename T>
+template<class T>
 void GenStack<T>::clearArray(){
     delete []myArray;
 }
 
-template<typename T>
+template<class T>
 void GenStack<T>::push(T data){
     if(!isFull()){
         myArray[++top] = data;
@@ -47,25 +53,42 @@ void GenStack<T>::push(T data){
     }
 }
 
-template<typename T>
+template<class T>
 T GenStack<T>::pop(){
     if(!isEmpty()){
         return myArray[top--];
     }
+    else{
+        throw "Pop from empty stack";
+    }
     return 0;
 }
 
-template<typename T>
+template<class T>
 T GenStack<T>::peek(){
     return myArray[top];
 }
 
-template<typename T>
+template<class T>
 bool GenStack<T>::isEmpty(){
     return (top == -1);
 }
 
-template<typename T>
+template<class T>
 bool GenStack<T>::isFull(){
     return (top == (mSize-1));
 }
+
+// int main(int argc, char ** argv){
+//
+//     GenStack<int> *myStack = new GenStack<int>(10);
+//
+//     try{
+//         cout << "popping :" << myStack->pop() << endl;
+//     }catch(const char* msg){
+//         cerr << msg << endl;
+//     }
+//
+//     delete myStack;
+//     return 0;
+// }
