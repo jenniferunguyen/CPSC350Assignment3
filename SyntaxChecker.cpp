@@ -7,7 +7,7 @@
 #include "SyntaxChecker.h"
 
 SyntaxChecker::SyntaxChecker(){
-    GenStack<char> *myStack = new GenStack<char>();
+    myStack = new GenStack<char>();
     latestLine = 0;
 }
 
@@ -31,26 +31,38 @@ bool SyntaxChecker::problem(int lineNum, char c){
                 if(partner == '('){
                     myStack->pop();
                 }
+                else if(partner == '{'){
+                    cout << "Line " << lineNum << ": expected }, got " << c << endl;
+                    return true;
+                }
                 else{
-                    cout << "Line " << lineNum << ": expected different delimiter, got " << c << endl;
+                    cout << "Line " << lineNum << ": expected ], got " << c << endl;
                     return true;
                 }
             }
             else if(c == '}'){
-                if(partner == '}'){
+                if(partner == '{'){
                     myStack->pop();
                 }
+                else if(partner == '('){
+                    cout << "Line " << lineNum << ": expected ), got " << c << endl;
+                    return true;
+                }
                 else{
-                    cout << "Line " << lineNum << ": expected different delimiter, got " << c << endl;
+                    cout << "Line " << lineNum << ": expected ], got " << c << endl;
                     return true;
                 }
             }
             else{
-                if(partner == ']'){
+                if(partner == '['){
                     myStack->pop();
                 }
+                else if(partner == '{'){
+                    cout << "Line " << lineNum << ": expected }, got " << c << endl;
+                    return true;
+                }
                 else{
-                    cout << "Line " << lineNum << ": expected different delimiter, got " << c << endl;
+                    cout << "Line " << lineNum << ": expected ), got " << c << endl;
                     return true;
                 }
             }

@@ -26,10 +26,10 @@ int main(int argc, char** argv){
             cin >> fileName;
         }
         else{
+            delete newRead;
             break;
         }
     }
-
 
     return 0;
 }

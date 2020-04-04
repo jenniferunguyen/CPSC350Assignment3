@@ -6,14 +6,12 @@
 
 #include "FileIO.h"
 
-FileIO::FileIO()
-{
-    SyntaxChecker *myChecker = new SyntaxChecker();
+FileIO::FileIO(){
+    myChecker = new SyntaxChecker();
 }
 
 
-FileIO::~FileIO()
-{
+FileIO::~FileIO(){
     delete myChecker;
 }
 
@@ -24,8 +22,7 @@ void FileIO::readFile(string fileName){
         while(getline(inputFile,line)){
             for(int i = 0; i < (line.length()-1); ++i){
                 if(myChecker->problem(lineNum, line[i])) {
-                    // cout << "You have an problem on line " << lineNum << endl;
-                    exit(0);
+                    exit(-1);
                 }
             }
             lineNum++;
@@ -35,8 +32,9 @@ void FileIO::readFile(string fileName){
         }
         else{
             cout << "You have an extra delimiter on line " << myChecker->lastLine() << endl;
-            exit(0);
+            exit(-1);
         }
+        inputFile.close();
     }
-    inputFile.close();
+
 }
